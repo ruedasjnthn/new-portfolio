@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 
+import { menuList } from "../../data/menu";
+
 const Menubar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,10 +33,20 @@ const Menubar = () => {
         />
       </button>
       <div
-        className={`absolute h-48 w-56 -translate-x-[12.5rem] translate-y-6 bg-primary-gray-blue ${
+        className={`absolute flex h-48 w-56 -translate-x-[12.5rem] translate-y-6 flex-col justify-center bg-primary-gray-blue ${
           isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
         } transition-all duration-300 ease-in-out`}
-      ></div>
+      >
+        <ul className="flex flex-col items-center gap-y-8">
+          {menuList.map((menu, index) => {
+            return (
+              <li key={index} className="cursor-pointer text-xs text-white">
+                {menu.name}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };

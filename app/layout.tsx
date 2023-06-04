@@ -1,13 +1,15 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 
-import Header from "./components/global/Header";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "Jonathan Ruedas | Software Engineer",
   description: "Software Engineer Portfolio",
+  keywords: ["Portfolio", "Software Engineer", "Jonathan Ruedas"],
+  icons: {
+    icon: "/images/icons/logo-dark.png",
+  },
 };
 
 export default function RootLayout({
@@ -17,9 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex min-h-screen flex-col">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
